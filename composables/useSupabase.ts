@@ -1,7 +1,6 @@
 export const useProjects = () => {
-    const supabase = useSupabaseClient()
-    
     const fetchProjects = async () => {
+        const supabase = useSupabaseClient()
         const { data, error } = await supabase
             .from('projects')
             .select('*')
@@ -15,6 +14,7 @@ export const useProjects = () => {
     }
     
     const uploadMedia = async (file: File, path: string) => {
+        const supabase = useSupabaseClient()
         const { data, error } = await supabase.storage
             .from('project_media')
             .upload(path, file, { upsert: true })
@@ -32,6 +32,7 @@ export const useProjects = () => {
     }
 
     const addProject = async (projectData: any) => {
+        const supabase = useSupabaseClient()
         const { data, error } = await supabase
             .from('projects')
             .insert(projectData)
@@ -46,6 +47,7 @@ export const useProjects = () => {
     }
     
     const deleteProject = async (id: string) => {
+        const supabase = useSupabaseClient()
         const { error } = await supabase
             .from('projects')
             .delete()
@@ -58,6 +60,7 @@ export const useProjects = () => {
     }
 
     const fetchSkills = async () => {
+        const supabase = useSupabaseClient()
         const { data, error } = await supabase
             .from('skills')
             .select('*')
@@ -71,6 +74,7 @@ export const useProjects = () => {
     }
 
     const addSkill = async (skillData: any) => {
+        const supabase = useSupabaseClient()
         const { data, error } = await supabase
             .from('skills')
             .insert(skillData)
@@ -85,6 +89,7 @@ export const useProjects = () => {
     }
 
     const deleteSkill = async (id: string) => {
+        const supabase = useSupabaseClient()
         const { error } = await supabase
             .from('skills')
             .delete()
@@ -97,6 +102,7 @@ export const useProjects = () => {
     }
     
     const fetchProfile = async () => {
+        const supabase = useSupabaseClient()
         const { data, error } = await supabase
             .from('profile')
             .select('*')
@@ -105,6 +111,7 @@ export const useProjects = () => {
     }
 
     const updateProfile = async (avatarUrl: string) => {
+        const supabase = useSupabaseClient()
         const { error } = await supabase
             .from('profile')
             .upsert({ id: 1, avatar_url: avatarUrl })
@@ -112,6 +119,7 @@ export const useProjects = () => {
     }
 
     const fetchCertificates = async () => {
+        const supabase = useSupabaseClient()
         const { data, error } = await supabase
             .from('certificates')
             .select('*')
@@ -120,6 +128,7 @@ export const useProjects = () => {
     }
 
     const addCertificate = async (certData: any) => {
+        const supabase = useSupabaseClient()
         const { data, error } = await supabase
             .from('certificates')
             .insert(certData)
@@ -129,6 +138,7 @@ export const useProjects = () => {
     }
 
     const deleteCertificate = async (id: string) => {
+        const supabase = useSupabaseClient()
         const { error } = await supabase
             .from('certificates')
             .delete()
