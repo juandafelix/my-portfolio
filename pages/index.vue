@@ -27,8 +27,8 @@
     <div class="mt-32 mb-20">
       <h3 class="text-xs font-bold uppercase tracking-widest text-minimal-text-light mb-8">Professional Certifications</h3>
       <div v-if="certificates.length > 0" class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div v-for="cert in certificates" :key="cert.id" @click="openModal(cert, 'cert')" class="group bg-white p-4 rounded-xl border border-minimal-border subtle-shadow hover:-translate-y-2 transition-all duration-300 cursor-pointer">
-          <div class="aspect-video md:aspect-square rounded-lg overflow-hidden mb-4 bg-gray-50 border border-minimal-border flex items-center justify-center relative">
+        <div v-for="cert in certificates" :key="cert.id" @click="openModal(cert, 'cert')" class="group bg-white p-4 rounded-xl border border-minimal-border subtle-shadow hover:-translate-y-2 transition-all duration-300 cursor-pointer flex flex-col h-full">
+          <div class="aspect-video md:aspect-square rounded-lg overflow-hidden mb-4 bg-gray-50 border border-minimal-border flex items-center justify-center relative flex-shrink-0">
             <template v-if="cert.image_url?.toLowerCase().endsWith('.pdf')">
               <div class="w-full h-full flex flex-col items-center justify-center bg-red-50 text-red-500 hover:bg-red-100 transition-colors group/pdf">
                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
@@ -37,7 +37,7 @@
             </template>
             <img v-else :src="cert.image_url" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500" :alt="cert.name" />
           </div>
-          <h4 class="text-sm font-bold text-minimal-text text-center line-clamp-2 h-10 flex items-center justify-center px-2">{{ cert.name }}</h4>
+          <h4 class="text-sm font-bold text-minimal-text text-center flex-grow flex items-center justify-center px-2 leading-snug">{{ cert.name }}</h4>
         </div>
       </div>
       <div v-else class="text-minimal-text-light italic text-sm py-8 text-center border border-dashed border-minimal-border rounded-xl">
