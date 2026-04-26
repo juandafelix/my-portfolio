@@ -1,8 +1,8 @@
 export default defineNuxtRouteMiddleware((to, from) => {
     const user = useSupabaseUser()
     
-    // Updated to your new email
-    const adminEmail = 'portfolio@gmail.com' 
+    // Reverted to your original email
+    const adminEmail = 'admin@example.com' 
 
     if (!user.value) {
         return navigateTo('/login')
